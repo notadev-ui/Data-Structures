@@ -32,8 +32,6 @@ class double_linked_list():
         prev.next = None 
         temp.next = None  
 
-
-
     def insert_at_end(self,data):
         n = node(data)
         temp = self.head
@@ -42,7 +40,7 @@ class double_linked_list():
         temp.next = n
         temp.prev = temp
 
-    
+
     def insert_at_anyPos(self,pos,data):
         n = node(data)
         temp = self.head
@@ -77,9 +75,10 @@ class double_linked_list():
             # Traverse the linked list until the last node
             while temp:
                 # Print the data of the current node
-                print(temp.data)
+                print(temp.data,end=" ->")
                 # Move to the next node
                 temp = temp.next
+            print("Null")
 
 L = double_linked_list()
 n1 = node(10)
@@ -98,11 +97,11 @@ n4.prev = n3
 n3.next = n4
 
 L.display()
-print("")
+print("insert at beginning")
 L.insert_at_beginning(5)
 L.display()
 
-print("next")
+print("insert at end")
 L.insert_at_end(50)
 L.display()
 

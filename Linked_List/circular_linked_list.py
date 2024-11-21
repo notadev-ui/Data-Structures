@@ -1,11 +1,8 @@
 # Defining a class for the node
 class node:
     def __init__(self, data):
-        # data will store the actual value of the node
         self.data = data
-        # next will point to the next node in the linked list, initially set to None
         self.next = None
-
 
 class CircularLinkedList:
     def __init__(self):
@@ -73,7 +70,6 @@ class CircularLinkedList:
         np.next = temp.next
         temp.next = np
 
-    #deletion at specified position
     def del_at_anyPos(self,pos):
         prev = self.head
         temp = self.head.next
@@ -85,46 +81,22 @@ class CircularLinkedList:
         if temp.next == self.tail:
             self.tail = self.head
             
-
-    #method of searching elements 
-    def search(self):
-        x = int(input("Enter element to be search in ccl: "))
-        temp = self.head
-    
-        count = 0
-        flag = 0
-        while temp != self.tail:
-            if x == temp.data:
-                flag = 1
-                break
-            temp = temp.next
-            count += 1
-            if temp == self.head:  # Break if we have looped back to the head
-              break
-    
-        if flag == 1:
-                print(x,"found", count+1)
-        else:
-                print(x,"not found")
-
-
-    
-    # Method to display the elements of the linked list
     def display(self):
         if self.head is None: 
             print("Linked list is Empty")
         else:
             temp = self.head
             while temp:
-                print(temp.data)
+                print(temp.data, end=" ->")
                 if (temp.next == self.head):
                     break
                 temp = temp.next
+            print("back to head")
             
 
 
 L = CircularLinkedList()
-"""
+
 # Creating nodes with data
 n = node(10)   # First node with data 10
 L.head = n     # Assigning the first node as the head of the linked list
@@ -136,38 +108,21 @@ L.tail.next = n1    # Linking first node to second node
 L.tail = n1
 L.tail.next = L.head
 
-n2 = node(30)  # Third node with data 30
-L.tail.next = n2   # Linking second node to third node
-L.tail = n2
-L.tail.next = L.head
-
-n3 = node(40)  # Fourth node with data 40
-n2.next = n3   # Linking third node to fourth node
-
-n4 = node(50)  # Fifth node with data 50
-n3.next = n4   # Linking fourth node to fifth node
-n4.next = n"""
-
 L.display()
-L.insert(10)
-L.insert(20)
 L.insert(30)
 L.insert(40)
 L.insert(50)
-L.insert(60)
-L.insert(70)
-L.insert(80)
 L.display()
-"""
-print("")
+
+print("insert at beginning")
 L.insert_at_beginning(5)
 L.display()
 
-print("next")
-L.insert_at_end(90)
+print("insert at end")
+L.insert_at_end(60)
 L.display()
 
-L.insert_at_anyPos(7,25)
+L.insert_at_anyPos(4,25)
 print("insert at any pos")
 L.display()
 
@@ -180,7 +135,6 @@ L.del_at_end()
 L.display()
 
 print("delete any element")
-L.del_at_anyPos(7)
+L.del_at_anyPos(4)
 L.display()
-"""
-L.search()
+

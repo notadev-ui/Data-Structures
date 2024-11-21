@@ -1,24 +1,18 @@
 # Defining a class for the node
 class node:
     def __init__(self, data):
-        # data will store the actual value of the node
         self.data = data
-        # next will point to the next node in the linked list, initially set to None
         self.next = None
 
-# Defining a class for the singly linked list
 class SingleLinkedList:
     def __init__(self):
-        # head will store the first node of the linked list, initially set to None (empty list)
         self.head = None
 
-    # Method of insertion at begining
     def insert_at_beginning(self,data):
         nb = node(data)
         nb.next = self.head
         self.head = nb
 
-    #method of deletion at beginning
     def del_at_beginning(self):
         temp = self.head
         self.head = temp.next
@@ -76,52 +70,42 @@ class SingleLinkedList:
             # Traverse the linked list until the last node
             while temp:
                 # Print the data of the current node
-                print(temp.data)
+                print(temp.data,end=" ->")
                 # Move to the next node
                 temp = temp.next
+            print("Null")
 
 # Creating an empty singly linked list
 L = SingleLinkedList()
 
 # Creating nodes with data
-n = node(10)   # First node with data 10
-L.head = n     # Assigning the first node as the head of the linked list
+n = node(10)   
+L.head = n     # 
 
-n1 = node(20)  # Second node with data 20
-L.head.next = n1    # Linking first node to second node
+n1 = node(20)  
+L.head.next = n1    
 
-n2 = node(30)  # Third node with data 30
-n1.next = n2   # Linking second node to third node
-
-n3 = node(40)  # Fourth node with data 40
-n2.next = n3   # Linking third node to fourth node
-
-n4 = node(50)  # Fifth node with data 50
-n3.next = n4   # Linking fourth node to fifth node
-
-# Display the linked list elements
 L.display()
 
-print("")
+print("\n")
+print("Inserting nodes at different position")
 L.insert_at_beginning(5)
 L.display()
 
-print("next")
 L.insert_at_end(60)
 L.display()
 
 L.insert_at_anyPos(3,25)
-print("insert at any pos")
 L.display()
 
-print("delete the first element")
+
+print("\n")
+print("Deleting nodes at different position")
 L.del_at_beginning()
 L.display()
 
-print("delete the last element")
 L.del_at_end()
 L.display()
 
-print("delete any element")
 L.del_at_anyPos(3)
 L.display()

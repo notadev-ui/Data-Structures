@@ -19,7 +19,7 @@ class Stack:
           
 
     def pop(self):
-        if Stack is None:
+        if self.top is None:
             print("Stack is empty")
         
         else:
@@ -35,13 +35,11 @@ class Stack:
             print("element of the stack are:")
             temp = self.top
             while temp:
-                print(temp.data)
+                print(temp.data, end=" ->")
                 temp = temp.next
-            print("Top of the stack is")
-
+            print("Top of the stack is", self.top.data )
 
 stack = Stack()    
-
 while True:
     print("Enter the option from below\n1-PUSH operation\n2-POP Operatuon\n3-Display\n4-Enter any key to exit")
     option = input()

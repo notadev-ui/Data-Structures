@@ -39,11 +39,7 @@ class Queue:
                 temp = temp.next
             print("front of the Queue is:", self.front.data)
             print("Rear of queue is:",self.rear.data)
-
-
-
 Queue = Queue()    
-
 while True:
     print("Enter the option from below\n1-Enqueue operation\n2-dequeue Operatuon\n3-Display\n4-Enter any key to exit")
     option = input()
